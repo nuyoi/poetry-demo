@@ -163,3 +163,215 @@ poetry run uvicorn main:app --reload
 ├── poetry.lock
 └── pyproject.toml
 ```
+
+```
+.
+├── Makefile
+├── README.md
+├── alembic.ini
+├── app
+│   ├── __init__.py
+│   ├── auth
+│   │   ├── __init__.py
+│   │   ├── adapter
+│   │   │   ├── __init__.py
+│   │   │   └── input
+│   │   │       ├── __init__.py
+│   │   │       └── api
+│   │   │           ├── __init__.py
+│   │   │           └── v1
+│   │   │               ├── __init__.py
+│   │   │               ├── auth.py
+│   │   │               ├── request
+│   │   │               │   └── __init__.py
+│   │   │               └── response
+│   │   │                   └── __init__.py
+│   │   ├── application
+│   │   │   ├── __init__.py
+│   │   │   ├── dto
+│   │   │   │   └── __init__.py
+│   │   │   ├── exception
+│   │   │   │   └── __init__.py
+│   │   │   └── service
+│   │   │       ├── __init__.py
+│   │   │       └── jwt.py
+│   │   └── domain
+│   │       ├── __init__.py
+│   │       ├── entity
+│   │       │   └── __init__.py
+│   │       └── usecase
+│   │           ├── __init__.py
+│   │           └── jwt.py
+│   ├── container.py
+│   ├── server.py
+│   └── user
+│       ├── __init__.py
+│       ├── adapter
+│       │   ├── __init__.py
+│       │   ├── input
+│       │   │   ├── __init__.py
+│       │   │   └── api
+│       │   │       ├── __init__.py
+│       │   │       └── v1
+│       │   │           ├── __init__.py
+│       │   │           ├── request
+│       │   │           │   └── __init__.py
+│       │   │           ├── response
+│       │   │           │   └── __init__.py
+│       │   │           └── user.py
+│       │   └── output
+│       │       ├── __init__.py
+│       │       └── persistence
+│       │           ├── __init__.py
+│       │           ├── repository_adapter.py
+│       │           └── sqlalchemy
+│       │               ├── __init__.py
+│       │               └── user.py
+│       ├── application
+│       │   ├── __init__.py
+│       │   ├── dto
+│       │   │   └── __init__.py
+│       │   ├── exception
+│       │   │   └── __init__.py
+│       │   └── service
+│       │       ├── __init__.py
+│       │       └── user.py
+│       ├── container.py
+│       └── domain
+│           ├── __init__.py
+│           ├── command
+│           │   └── __init__.py
+│           ├── entity
+│           │   ├── __init__.py
+│           │   └── user.py
+│           ├── repository
+│           │   ├── __init__.py
+│           │   └── user.py
+│           ├── usecase
+│           │   ├── __init__.py
+│           │   └── user.py
+│           └── vo
+│               ├── __init__.py
+│               └── location.py
+├── celery_task
+│   ├── __init__.py
+│   └── tasks
+│       └── __init__.py
+├── core
+│   ├── __init__.py
+│   ├── config.py
+│   ├── db
+│   │   ├── __init__.py
+│   │   ├── mixins
+│   │   │   ├── __init__.py
+│   │   │   └── timestamp_mixin.py
+│   │   ├── session.py
+│   │   └── transactional.py
+│   ├── exceptions
+│   │   ├── __init__.py
+│   │   └── base.py
+│   ├── fastapi
+│   │   ├── __init__.py
+│   │   ├── dependencies
+│   │   │   ├── __init__.py
+│   │   │   ├── logging.py
+│   │   │   └── permission.py
+│   │   └── middlewares
+│   │       ├── __init__.py
+│   │       ├── authentication.py
+│   │       ├── response_log.py
+│   │       └── sqlalchemy.py
+│   ├── helpers
+│   │   ├── __init__.py
+│   │   ├── cache
+│   │   │   ├── __init__.py
+│   │   │   ├── base
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── backend.py
+│   │   │   │   └── key_maker.py
+│   │   │   ├── cache_manager.py
+│   │   │   ├── cache_tag.py
+│   │   │   ├── custom_key_maker.py
+│   │   │   └── redis_backend.py
+│   │   ├── redis.py
+│   │   └── token.py
+│   └── repository
+│       ├── __init__.py
+│       ├── base.py
+│       └── enum.py
+├── docker
+│   ├── docker-compose.yml
+│   └── init.sql
+├── main.py
+├── migrations
+│   ├── README
+│   ├── env.py
+│   ├── script.py.mako
+│   └── versions
+│       └── 59628dea39ff_init.py
+├── poetry.lock
+├── pyproject.toml
+├── pytest.ini
+└── tests
+    ├── __init__.py
+    ├── app
+    │   ├── __init__.py
+    │   ├── auth
+    │   │   ├── __init__.py
+    │   │   └── application
+    │   │       ├── __init__.py
+    │   │       └── service
+    │   │           ├── __init__.py
+    │   │           └── test_jwt.py
+    │   └── user
+    │       ├── __init__.py
+    │       ├── adapter
+    │       │   ├── __init__.py
+    │       │   ├── input
+    │       │   │   ├── __init__.py
+    │       │   │   └── api
+    │       │   │       ├── __init__.py
+    │       │   │       └── v1
+    │       │   │           ├── __init__.py
+    │       │   │           └── test_user.py
+    │       │   └── output
+    │       │       ├── __init__.py
+    │       │       └── persistence
+    │       │           ├── __init__.py
+    │       │           ├── sqlalchemy
+    │       │           │   ├── __init__.py
+    │       │           │   └── test_user.py
+    │       │           └── test_repository_adapter.py
+    │       └── application
+    │           ├── __init__.py
+    │           └── service
+    │               ├── __init__.py
+    │               └── test_user.py
+    ├── conftest.py
+    ├── core
+    │   ├── __init__.py
+    │   ├── exceptions
+    │   │   ├── __init__.py
+    │   │   └── test_base.py
+    │   ├── fastapi
+    │   │   ├── __init__.py
+    │   │   ├── dependencies
+    │   │   │   ├── __init__.py
+    │   │   │   └── test_permission.py
+    │   │   └── middlewares
+    │   │       ├── __init__.py
+    │   │       ├── test_authentication.py
+    │   │       └── test_sqlalchemy.py
+    │   └── helpers
+    │       ├── __init__.py
+    │       ├── cache
+    │       │   ├── __init__.py
+    │       │   ├── test_custom_key_maker.py
+    │       │   └── test_redis_backend.py
+    │       └── test_token.py
+    └── support
+        ├── __init__.py
+        ├── test_db_coordinator.py
+        ├── token.py
+        └── user_fixture.py
+```
